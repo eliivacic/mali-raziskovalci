@@ -7,7 +7,7 @@ export default function AboutSection() {
         <p className="text-black text-sm md:text-base font-medium leading-relaxed max-w-2xl">
           50 PRAVLJIC | 50 POBARVANK | 30 AKTIVNOSTI BREZ ZASLONOV
           <br />
-          45 IZZIVOV PRIJAZNOSTI | 32 POGOVORNIH KARTIC
+          45 IZZIVOV PRIJAZNOSTI | 32 POGOVORNIH KARTIC | 25 MISELNIH IN UČNIH IZZIVOV
         </p>
       </div>
 

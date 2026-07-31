@@ -86,7 +86,12 @@ export default function App() {
           >
             SPLOŠNI POGOJI POSLOVANJA
           </a>
-          <a href="#" className="hover:underline">
+          <a
+            href="/Politika_zasebnosti_MALI_RAZISKOVALCI.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             POLITIKA ZASEBNOSTI
           </a>
         </div>
