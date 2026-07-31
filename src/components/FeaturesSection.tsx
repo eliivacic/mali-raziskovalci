@@ -118,15 +118,15 @@ export default function FeaturesSection() {
             ))}
           </div>
 
-          <div className="hidden lg:flex flex-col gap-4">
-            <p className="text-black text-sm font-medium whitespace-nowrap">
+          <div className="flex flex-col items-center lg:items-start gap-4 mt-6 lg:mt-0 text-center lg:text-left">
+            <p className="text-black text-sm font-medium">
               Manj zaslonov. Več domišljije. Več skupnih trenutkov.
             </p>
             <a
               href="https://checkout.mailerlite.com/checkout/32932"
               target="_blank"
               rel="noopener noreferrer"
-              className="self-start bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#b08b65] transition-colors whitespace-nowrap"
+              className="self-center lg:self-start bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#b08b65] transition-colors whitespace-nowrap"
             >
               KUPI ZDAJ: 15,80€
             </a>
