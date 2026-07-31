@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import AboutSection from './components/AboutSection'
 import FeaturesSection from './components/FeaturesSection'
@@ -98,6 +99,7 @@ export default function App() {
       </footer>
 
       <CookieBanner />
+      <Analytics />
     </>
   )
 }
