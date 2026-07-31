@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import AboutSection from './components/AboutSection'
 import FeaturesSection from './components/FeaturesSection'
+import FaqSection from './components/FaqSection'
 import CookieBanner from './components/CookieBanner'
 
 export default function App() {
@@ -13,7 +14,8 @@ export default function App() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-[75%_center] sm:object-center"
           src="/The_brown_bear_white_rabbit_he_Kling_30__39033.mp4"
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -38,8 +40,8 @@ export default function App() {
             +270 STRANI skupnih aktivnosti
           </p>
 
-          <div className="mt-8 bg-black/25 backdrop-blur-md rounded-xl flex items-center pl-10 pr-1 py-1 gap-10">
-            <span className="text-white text-sm font-medium whitespace-nowrap">
+          <div className="mt-8 bg-black/25 backdrop-blur-md rounded-xl flex flex-col sm:flex-row items-center sm:pl-10 sm:pr-1 px-6 py-4 sm:py-1 gap-3 sm:gap-10">
+            <span className="text-white text-sm font-medium text-center whitespace-nowrap">
               ZAČNITE USTVARJATI SPOMINE ❤️
             </span>
             <a
@@ -56,8 +58,9 @@ export default function App() {
 
       <AboutSection />
       <FeaturesSection />
+      <FaqSection />
 
-      <footer className="bg-[#fbf4e8] px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium">
+      <footer className="bg-[#fbf4e8] px-6 py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
         <span>
           IZDELAVA:{' '}
           <a
@@ -70,7 +73,7 @@ export default function App() {
           </a>
         </span>
 
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-6">
           <a
             href="/Politika_piskotkov_MALI_RAZISKOVALCI.pdf"
             target="_blank"

@@ -6,36 +6,42 @@ const FEATURES = [
     description:
       'Tople zgodbe za lahno noč, ki spodbujajo domišljijo in ustvarjajo prostor za skupne trenutke pred spanjem.',
     video: '/pravljice.mp4',
+    icon: '/1.png',
   },
   {
     title: '50 POBARVANK',
     description:
       'Pobarvanke, ki otroke umirijo in jim ponudijo miren, ustvarjalen odmor od zaslonov.',
     video: '/POBARVANKE.mp4',
+    icon: '/2.png',
   },
   {
     title: '30 AKTIVNOSTI BREZ ZASLONOV',
     description:
       'Preproste igre in opravila za doma, ki otrokovo pozornost peljejo daleč stran od zaslonov.',
     video: '/aktivnosti.mp4',
+    icon: '/3.png',
   },
   {
     title: '45 IZZIVOV PRIJAZNOSTI',
     description:
       'Majhni vsakodnevni izzivi, ki otroke učijo empatije, hvaležnosti in prijaznosti do drugih.',
     video: '/izzivi-prijaznosti.mp4',
+    icon: '/5.png',
   },
   {
     title: '32 POGOVORNIH KARTIC',
     description:
       'Vprašanja, ki odprejo pristne pogovore in pomagajo družini preživeti več pristnega časa skupaj.',
     video: '/pogovorne-kartice.mp4',
+    icon: '/6.png',
   },
   {
     title: '25 MISELNIH IN UČNIH IZZIVOV',
     description:
       'Miselni in učni izzivi, ki na igriv način krepijo logiko, spomin in željo po znanju.',
     video: '/miselniizzivi.mp4',
+    icon: '/7.png',
   },
 ]
 
@@ -138,7 +144,10 @@ export default function FeaturesSection() {
                 revealed[index] ? 'translate-x-0 opacity-100' : 'translate-x-16 opacity-0'
               }`}
             >
-              <h3 className="text-black text-xl md:text-2xl font-medium">{feature.title}</h3>
+              <div className="flex items-center gap-4">
+                <img src={feature.icon} alt="" className="w-14 h-14 md:w-16 md:h-16 object-contain shrink-0" />
+                <h3 className="text-black text-xl md:text-2xl font-medium">{feature.title}</h3>
+              </div>
               <div className="aspect-video rounded-2xl overflow-hidden bg-[#b08b65]/30">
                 <video
                   src={feature.video}
