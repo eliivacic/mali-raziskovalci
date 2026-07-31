@@ -100,7 +100,7 @@ export default function FeaturesSection() {
     <section className="relative bg-[#fbf4e8] px-5 md:px-10 lg:px-16 py-20 md:py-40 lg:py-48">
       <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] gap-24 xl:gap-48">
         <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between lg:py-32">
-          <h2 className="text-black text-2xl sm:text-3xl lg:text-[46px] leading-[1.2] font-normal">
+          <h2 className="text-black text-2xl sm:text-3xl lg:text-[46px] leading-[1.2] font-normal text-center lg:text-left">
             Kaj najdete v priročniku?
           </h2>
 
@@ -144,7 +144,7 @@ export default function FeaturesSection() {
                 revealed[index] ? 'translate-x-0 opacity-100' : 'translate-x-16 opacity-0'
               }`}
             >
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col lg:flex-row items-center lg:justify-start gap-2 lg:gap-4">
                 <img src={feature.icon} alt="" className="w-14 h-14 md:w-16 md:h-16 object-contain shrink-0" />
                 <h3 className="text-black text-xl md:text-2xl font-medium">{feature.title}</h3>
               </div>
@@ -158,7 +158,7 @@ export default function FeaturesSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-black/60 font-medium text-sm md:text-base leading-relaxed">
+              <p className="text-black/60 font-medium text-sm md:text-base leading-relaxed text-center lg:text-left">
                 {feature.description}
               </p>
             </div>
