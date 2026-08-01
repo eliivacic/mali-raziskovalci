@@ -41,6 +41,12 @@ export default function AboutSection() {
           KUPI ZDAJ: 15,80€
         </a>
       </div>
+
+      <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-6 text-black/60 text-xs md:text-sm font-medium">
+        <span className="flex items-center gap-2">🔒 Varno plačilo</span>
+        <span className="flex items-center gap-2">⚡ Takojšnja dostava po e-pošti</span>
+        <span className="flex items-center gap-2">📖 270+ strani vsebine</span>
+      </div>
     </section>
   )
 }

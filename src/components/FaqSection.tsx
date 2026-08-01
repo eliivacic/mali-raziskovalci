@@ -30,50 +30,83 @@ const FAQS = [
     answer:
       'Seveda — pobarvanke in delovne liste lahko po želji natisnete v več izvodih, ostale vsebine (pravljice, izzive, pogovorne kartice) pa lahko sorojenci uporabljajo skupaj.',
   },
+  {
+    question: 'Ali je priročnik v slovenščini?',
+    answer: 'Da, celoten priročnik je pripravljen v slovenščini.',
+  },
+  {
+    question: 'Kako dolgo imam dostop do priročnika?',
+    answer:
+      'Priročnik je vaš za vedno — enkrat prenesena PDF datoteka ostane na vaši napravi brez časovne omejitve.',
+  },
+  {
+    question: 'Ali je priročnik primeren tudi kot darilo?',
+    answer:
+      'Vsekakor! Po nakupu lahko povezavo do priročnika preprosto posredujete osebi, kateri ga želite podariti.',
+  },
+  {
+    question: 'Kaj če imam dodatna vprašanja?',
+    answer:
+      'Z veseljem pomagamo — pišite nam na info@maliraziskovalci.si in odgovorimo v najkrajšem možnem času.',
+  },
 ]
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const half = Math.ceil(FAQS.length / 2)
+  const columns = [FAQS.slice(0, half), FAQS.slice(half)]
+
+  const renderFaq = (faq: (typeof FAQS)[number], index: number) => {
+    const isOpen = openIndex === index
+    return (
+      <div key={faq.question} className="bg-[#b08b65]/10 rounded-2xl overflow-hidden">
+        <button
+          onClick={() => setOpenIndex(isOpen ? null : index)}
+          className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
+        >
+          <span className="text-black text-base md:text-lg font-medium">{faq.question}</span>
+          <span
+            className={`shrink-0 text-[#b08b65] text-2xl leading-none transition-transform ${
+              isOpen ? 'rotate-45' : ''
+            }`}
+          >
+            +
+          </span>
+        </button>
+        {isOpen && (
+          <p className="px-6 pb-5 text-black/70 text-sm md:text-base leading-relaxed">
+            {faq.answer}
+          </p>
+        )}
+      </div>
+    )
+  }
 
   return (
     <section className="bg-[#fbf4e8] px-6 py-20 md:py-32">
-      <div className="max-w-3xl mx-auto flex flex-col gap-10">
+      <div className="max-w-5xl mx-auto flex flex-col gap-10">
         <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-normal text-center">
           Pogosta vprašanja
         </h2>
 
-        <div className="flex flex-col gap-4">
-          {FAQS.map((faq, index) => {
-            const isOpen = openIndex === index
-            return (
-              <div
-                key={faq.question}
-                className="bg-[#b08b65]/10 rounded-2xl overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
-                >
-                  <span className="text-black text-base md:text-lg font-medium">
-                    {faq.question}
-                  </span>
-                  <span
-                    className={`shrink-0 text-[#b08b65] text-2xl leading-none transition-transform ${
-                      isOpen ? 'rotate-45' : ''
-                    }`}
-                  >
-                    +
-                  </span>
-                </button>
-                {isOpen && (
-                  <p className="px-6 pb-5 text-black/70 text-sm md:text-base leading-relaxed">
-                    {faq.answer}
-                  </p>
-                )}
-              </div>
-            )
-          })}
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-x-6">
+          {columns.map((column, colIndex) => (
+            <div key={colIndex} className="flex flex-col gap-4">
+              {column.map((faq, i) => renderFaq(faq, colIndex === 0 ? i : i + half))}
+            </div>
+          ))}
         </div>
+
+        <p className="text-black/70 text-sm md:text-base text-center">
+          Imate vprašanje?{' '}
+          <a
+            href="mailto:info@maliraziskovalci.si"
+            className="text-[#b08b65] font-semibold underline hover:no-underline"
+          >
+            Pišite nam na info@maliraziskovalci.si
+          </a>
+        </p>
       </div>
     </section>
   )

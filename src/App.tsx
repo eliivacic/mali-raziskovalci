@@ -2,7 +2,9 @@ import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import AboutSection from './components/AboutSection'
 import FeaturesSection from './components/FeaturesSection'
+import ReviewsSection from './components/ReviewsSection'
 import FaqSection from './components/FaqSection'
+import ClosingCtaSection from './components/ClosingCtaSection'
 import CookieBanner from './components/CookieBanner'
 import StickyBuyBar from './components/StickyBuyBar'
 
@@ -49,7 +51,7 @@ export default function App() {
               href="https://checkout.mailerlite.com/checkout/32932"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-white/90 whitespace-nowrap"
+              className="bg-white text-black text-base font-medium px-6 py-3 rounded-xl hover:bg-white/90 transition-colors whitespace-nowrap"
             >
               KUPI ZDAJ: 15,80€
             </a>
@@ -59,7 +61,9 @@ export default function App() {
 
       <AboutSection />
       <FeaturesSection />
+      <ReviewsSection />
       <FaqSection />
+      <ClosingCtaSection />
 
       <footer className="bg-[#fbf4e8] px-6 pt-8 pb-24 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
         <span>
