@@ -51,7 +51,16 @@ export default function CookieBanner() {
   const [preferences, setPreferences] = useState<Preferences>(DEFAULT_PREFERENCES)
 
   useEffect(() => {
-    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true)
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (!stored) {
+      setVisible(true)
+      return
+    }
+    try {
+      setPreferences({ ...DEFAULT_PREFERENCES, ...JSON.parse(stored) })
+    } catch {
+      // ignore malformed stored value
+    }
   }, [])
 
   const save = (prefs: Preferences) => {
@@ -67,40 +76,51 @@ export default function CookieBanner() {
 
   const saveCurrent = () => save(preferences)
 
-  if (!visible) return null
-
   return (
     <>
-      <div className="fixed bottom-20 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] bg-[#fbf4e8] text-black rounded-2xl shadow-xl p-6 flex flex-col gap-4">
-        <p className="text-sm leading-relaxed">
-          Uporabljamo piškotke, da izboljšamo tvojo izkušnjo na naši strani. Z nadaljnjo uporabo se
-          strinjaš z našo{' '}
-          <a href="#" className="underline hover:no-underline">
-            politiko zasebnosti
-          </a>
-          .
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <button
-            onClick={acceptAll}
-            className="flex-1 bg-[#b08b65] text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-black transition-colors whitespace-nowrap"
-          >
-            Sprejmi
-          </button>
-          <button
-            onClick={rejectAll}
-            className="flex-1 bg-transparent border border-[#b08b65] text-black text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-[#b08b65]/10 transition-colors whitespace-nowrap"
-          >
-            Zavrni
-          </button>
-          <button
-            onClick={() => setShowPreferences(true)}
-            className="flex-1 bg-transparent text-black text-sm font-medium px-4 py-2.5 rounded-xl underline hover:no-underline whitespace-nowrap"
-          >
-            Prilagodi
-          </button>
+      {visible && (
+        <div className="fixed bottom-20 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] bg-[#fbf4e8] text-black rounded-2xl shadow-xl p-6 flex flex-col gap-4">
+          <p className="text-sm leading-relaxed">
+            Uporabljamo piškotke, da izboljšamo tvojo izkušnjo na naši strani. Z nadaljnjo uporabo
+            se strinjaš z našo{' '}
+            <a href="#" className="underline hover:no-underline">
+              politiko zasebnosti
+            </a>
+            .
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={acceptAll}
+              className="flex-1 bg-[#b08b65] text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-black transition-colors whitespace-nowrap"
+            >
+              Sprejmi
+            </button>
+            <button
+              onClick={rejectAll}
+              className="flex-1 bg-transparent border border-[#b08b65] text-black text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-[#b08b65]/10 transition-colors whitespace-nowrap"
+            >
+              Zavrni
+            </button>
+            <button
+              onClick={() => setShowPreferences(true)}
+              className="flex-1 bg-transparent text-black text-sm font-medium px-4 py-2.5 rounded-xl underline hover:no-underline whitespace-nowrap"
+            >
+              Prilagodi
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
+      {!visible && (
+        <button
+          onClick={() => setShowPreferences(true)}
+          aria-label="Nastavitve piškotkov"
+          title="Nastavitve piškotkov"
+          className="fixed bottom-20 left-4 z-[100] w-12 h-12 rounded-full bg-[#b08b65] text-white text-2xl flex items-center justify-center shadow-lg hover:bg-black transition-colors"
+        >
+          🍪
+        </button>
+      )}
 
       {showPreferences && (
         <div className="fixed inset-0 z-[110] bg-black/50 flex items-center justify-center p-4">
