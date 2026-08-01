@@ -98,7 +98,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="relative bg-[#f3e6d3] px-5 md:px-10 lg:px-16 py-20 md:py-40 lg:py-48">
-      <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] gap-24 xl:gap-48">
+      <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] gap-6 lg:gap-24 xl:gap-48">
         <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between lg:py-32">
           <h2 className="text-black text-2xl sm:text-3xl lg:text-[46px] leading-[1.2] font-normal text-center lg:text-left">
             Kaj najdete v priročniku?
