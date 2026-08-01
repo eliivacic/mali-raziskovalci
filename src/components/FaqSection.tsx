@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     question: 'Za katero starost otrok je primeren?',
-    answer: 'Vsebine so zasnovane za otroke od 3. do 7. leta.',
+    answer: 'Vsebine so zasnovane za otroke od 3 do 10 let.',
   },
   {
     question: 'Ali potrebujem tiskalnik za uporabo?',
