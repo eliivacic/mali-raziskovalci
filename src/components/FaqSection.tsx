@@ -23,7 +23,7 @@ const FAQS = [
   {
     question: 'Kako poteka nakup in kdaj prejmem dostop?',
     answer:
-      'Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem nakupu prejmete povezavo do priročnika na e-pošto v nekaj minutah.',
+      'Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas kontaktirajte na info@maliraziskovalci.si.',
   },
   {
     question: 'Ali lahko priročnik uporablja več otrok hkrati?',
