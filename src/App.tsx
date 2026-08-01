@@ -4,6 +4,7 @@ import AboutSection from './components/AboutSection'
 import FeaturesSection from './components/FeaturesSection'
 import FaqSection from './components/FaqSection'
 import CookieBanner from './components/CookieBanner'
+import StickyBuyBar from './components/StickyBuyBar'
 
 export default function App() {
   return (
@@ -60,7 +61,7 @@ export default function App() {
       <FeaturesSection />
       <FaqSection />
 
-      <footer className="bg-[#fbf4e8] px-6 py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
+      <footer className="bg-[#fbf4e8] px-6 pt-8 pb-24 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
         <span>
           IZDELAVA:{' '}
           <a
@@ -102,6 +103,7 @@ export default function App() {
       </footer>
 
       <CookieBanner />
+      <StickyBuyBar />
       <Analytics />
     </>
   )

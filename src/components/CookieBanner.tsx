@@ -71,7 +71,7 @@ export default function CookieBanner() {
 
   return (
     <>
-      <div className="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] bg-[#fbf4e8] text-black rounded-2xl shadow-xl p-6 flex flex-col gap-4">
+      <div className="fixed bottom-20 left-4 right-4 sm:right-auto sm:max-w-sm z-[100] bg-[#fbf4e8] text-black rounded-2xl shadow-xl p-6 flex flex-col gap-4">
         <p className="text-sm leading-relaxed">
           Uporabljamo piškotke, da izboljšamo tvojo izkušnjo na naši strani. Z nadaljnjo uporabo se
           strinjaš z našo{' '}
