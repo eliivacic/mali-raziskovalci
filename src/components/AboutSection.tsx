@@ -1,8 +1,17 @@
+import { BookOpen, Euro, Lock, Zap } from 'lucide-react'
+
 export default function AboutSection() {
   return (
-    <section className="relative z-10 bg-[#fbf4e8] rounded-t-[25px] py-20 md:py-32 px-6">
+    <section className="relative z-10 bg-cream rounded-t-[25px] py-20 md:py-32 px-6">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
-        <img src="/product.png" alt="Izdelek" className="max-w-full h-auto" />
+        <img
+          src="/product.png"
+          alt="Priročnik Mali raziskovalci s pravljicami, pobarvankami in aktivnostmi za otroke"
+          width={1536}
+          height={1024}
+          loading="lazy"
+          className="max-w-full h-auto"
+        />
 
         <p className="text-black text-sm md:text-base font-medium leading-relaxed max-w-2xl">
           50 PRAVLJIC | 50 POBARVANK | 30 AKTIVNOSTI BREZ ZASLONOV
@@ -17,11 +26,11 @@ export default function AboutSection() {
         <span className="w-2 h-2 rounded-full bg-[#D9C4AA]" />
       </div>
 
-      <div className="max-w-6xl mx-auto flex justify-center">
-        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.3] font-normal text-black text-center">
-          <span className="font-bold">Otroštvo ni tekmovanje. Je raziskovanje.</span>
-          <br />
-          <br />
+      <div className="max-w-6xl mx-auto flex flex-col items-center justify-center text-center gap-0">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.3] font-bold text-black">
+          Otroštvo ni tekmovanje. Je raziskovanje.
+        </h2>
+        <p className="mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.3] font-normal text-black">
           V svetu, kjer dnevi hitro minevajo, želimo staršem ponuditi preproste ideje za več
           skupnih trenutkov.
           <br />
@@ -36,17 +45,25 @@ export default function AboutSection() {
           href="https://checkout.mailerlite.com/checkout/32932"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#8a6a49] transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
+          className="bg-brand text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-brand-text transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
         >
           KUPI ZDAJ: 15,80€
         </a>
       </div>
 
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-6 text-black/60 text-xs md:text-sm font-medium">
-        <span className="flex items-center gap-2">🔒 Varno plačilo</span>
-        <span className="flex items-center gap-2">⚡ Takojšnja dostava po e-pošti</span>
-        <span className="flex items-center gap-2">📖 270+ strani vsebine</span>
-        <span className="flex items-center gap-2">💶 Manj kot 6 centov na stran</span>
+        <span className="flex items-center gap-2">
+          <Lock size={14} /> Varno plačilo
+        </span>
+        <span className="flex items-center gap-2">
+          <Zap size={14} /> Takojšnja dostava po e-pošti
+        </span>
+        <span className="flex items-center gap-2">
+          <BookOpen size={14} /> 270+ strani vsebine
+        </span>
+        <span className="flex items-center gap-2">
+          <Euro size={14} /> Manj kot 6 centov na stran
+        </span>
       </div>
     </section>
   )

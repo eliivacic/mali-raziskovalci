@@ -45,7 +45,7 @@ const REVIEWS = [
 
 function Stars() {
   return (
-    <div className="flex gap-0.5 text-[#8a6a49] text-sm" aria-hidden="true">
+    <div className="flex gap-0.5 text-brand-text text-sm" aria-hidden="true">
       {'★★★★★'.split('').map((star, i) => (
         <span key={i}>{star}</span>
       ))}
@@ -65,9 +65,12 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
         <img
           src={review.avatar}
           alt=""
-          className="w-8 h-8 rounded-full object-cover bg-[#f3e6d3]"
+          width={240}
+          height={240}
+          loading="lazy"
+          className="w-8 h-8 rounded-full object-cover bg-tan"
         />
-        <p className="text-[#8a6a49] text-sm font-semibold">{review.author}</p>
+        <p className="text-brand-text text-sm font-semibold">{review.author}</p>
       </div>
     </div>
   )
@@ -75,8 +78,11 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
 
 export default function ReviewsSection() {
   return (
-    <section className="bg-[#fbf4e8] py-20 md:py-28 overflow-hidden">
-      <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-normal text-center px-6 mb-12">
+    <section className="bg-cream py-20 md:py-28 overflow-hidden">
+      <h2
+        className="text-black text-3xl sm:text-4xl md:text-5xl text-center px-6 mb-12"
+        style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+      >
         Kaj pravijo starši?
       </h2>
 

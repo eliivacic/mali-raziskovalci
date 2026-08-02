@@ -27,7 +27,7 @@ const FAQS = [
         Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem
         nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas
         kontaktirajte na{' '}
-        <a href="mailto:info@maliraziskovalci.si" className="text-[#8a6a49] underline hover:no-underline">
+        <a href="mailto:info@maliraziskovalci.si" className="text-brand-text underline hover:no-underline">
           info@maliraziskovalci.si
         </a>
         .
@@ -58,7 +58,7 @@ const FAQS = [
     answer: (
       <>
         Brez skrbi — pišite nam na{' '}
-        <a href="mailto:info@maliraziskovalci.si" className="text-[#8a6a49] underline hover:no-underline">
+        <a href="mailto:info@maliraziskovalci.si" className="text-brand-text underline hover:no-underline">
           info@maliraziskovalci.si
         </a>{' '}
         in vam bomo poslali predračun po e-pošti.
@@ -76,14 +76,14 @@ export default function FaqSection() {
   const renderFaq = (faq: (typeof FAQS)[number], index: number) => {
     const isOpen = openIndex === index
     return (
-      <div key={faq.question} className="bg-[#b08b65]/10 rounded-2xl overflow-hidden">
+      <div key={faq.question} className="bg-brand/10 rounded-2xl overflow-hidden">
         <button
           onClick={() => setOpenIndex(isOpen ? null : index)}
           className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
         >
           <span className="text-black text-base md:text-lg font-medium">{faq.question}</span>
           <span
-            className={`shrink-0 text-[#8a6a49] text-2xl leading-none transition-transform ${
+            className={`shrink-0 text-brand-text text-2xl leading-none transition-transform ${
               isOpen ? 'rotate-45' : ''
             }`}
           >
@@ -110,9 +110,12 @@ export default function FaqSection() {
   }
 
   return (
-    <section className="bg-[#fbf4e8] px-6 py-20 md:py-32">
+    <section className="bg-cream px-6 py-20 md:py-32">
       <div className="max-w-5xl mx-auto flex flex-col gap-10">
-        <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-normal text-center">
+        <h2
+          className="text-black text-3xl sm:text-4xl md:text-5xl text-center"
+          style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+        >
           Pogosta vprašanja
         </h2>
 
@@ -128,7 +131,7 @@ export default function FaqSection() {
           Imate vprašanje?{' '}
           <a
             href="mailto:info@maliraziskovalci.si"
-            className="text-[#8a6a49] font-semibold underline hover:no-underline"
+            className="text-brand-text font-semibold underline hover:no-underline"
           >
             Pišite nam na info@maliraziskovalci.si
           </a>

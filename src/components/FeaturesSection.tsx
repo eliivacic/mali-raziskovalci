@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { BookOpen, Euro, Lock, Zap } from 'lucide-react'
 
 const FEATURES = [
   {
@@ -62,9 +63,12 @@ export default function FeaturesSection() {
   }, [])
 
   return (
-    <section className="relative bg-[#f3e6d3] px-5 md:px-10 lg:px-16 py-20 md:py-32">
+    <section className="relative bg-tan px-5 md:px-10 lg:px-16 py-20 md:py-32">
       <div className="max-w-[1600px] mx-auto flex flex-col items-center gap-12">
-        <h2 className="text-black text-2xl sm:text-3xl lg:text-5xl font-normal text-center">
+        <h2
+          className="text-black text-2xl sm:text-3xl lg:text-5xl text-center"
+          style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}
+        >
           Kaj najdete v priročniku?
         </h2>
 
@@ -82,6 +86,9 @@ export default function FeaturesSection() {
               <img
                 src={feature.icon}
                 alt=""
+                width={240}
+                height={240}
+                loading="lazy"
                 className="w-16 h-16 md:w-24 md:h-24 object-contain"
               />
               <h3 className="text-black text-sm md:text-lg font-medium leading-tight min-h-[2.2rem] md:min-h-[3.5rem] flex items-center justify-center">
@@ -102,16 +109,24 @@ export default function FeaturesSection() {
             href="https://checkout.mailerlite.com/checkout/32932"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#8a6a49] transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
+            className="bg-brand text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-brand-text transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
           >
             KUPI ZDAJ: 15,80€
           </a>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-2 text-black/60 text-xs md:text-sm font-medium">
-            <span className="flex items-center gap-2">🔒 Varno plačilo</span>
-            <span className="flex items-center gap-2">⚡ Takojšnja dostava po e-pošti</span>
-            <span className="flex items-center gap-2">📖 270+ strani vsebine</span>
-            <span className="flex items-center gap-2">💶 Manj kot 6 centov na stran</span>
+            <span className="flex items-center gap-2">
+              <Lock size={14} /> Varno plačilo
+            </span>
+            <span className="flex items-center gap-2">
+              <Zap size={14} /> Takojšnja dostava po e-pošti
+            </span>
+            <span className="flex items-center gap-2">
+              <BookOpen size={14} /> 270+ strani vsebine
+            </span>
+            <span className="flex items-center gap-2">
+              <Euro size={14} /> Manj kot 6 centov na stran
+            </span>
           </div>
         </div>
       </div>

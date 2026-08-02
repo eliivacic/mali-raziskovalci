@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
+import { Heart } from 'lucide-react'
 import Navbar from './components/Navbar'
 import AboutSection from './components/AboutSection'
 import FeaturesSection from './components/FeaturesSection'
@@ -44,8 +45,8 @@ export default function App() {
           </p>
 
           <div className="mt-8 bg-black/25 backdrop-blur-md rounded-xl flex flex-col sm:flex-row items-center sm:pl-10 sm:pr-1 px-6 py-4 sm:py-1 gap-3 sm:gap-10">
-            <span className="text-white text-sm font-medium text-center whitespace-nowrap">
-              ZAČNITE USTVARJATI SPOMINE ❤️
+            <span className="text-white text-sm font-medium text-center whitespace-nowrap flex items-center justify-center gap-1.5">
+              ZAČNITE USTVARJATI SPOMINE <Heart size={14} fill="currentColor" />
             </span>
             <a
               href="https://checkout.mailerlite.com/checkout/32932"
@@ -65,7 +66,7 @@ export default function App() {
       <FaqSection />
       <ClosingCtaSection />
 
-      <footer className="bg-[#fbf4e8] px-6 pt-8 pb-24 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
+      <footer className="bg-cream px-6 pt-8 pb-24 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-black text-sm font-medium text-center">
         <span>
           IZDELAVA:{' '}
           <a

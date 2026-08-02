@@ -4,6 +4,12 @@
 @theme {
   --animate-fade-in-down: fade-in-down 0.2s ease-out;
   --animate-marquee: marquee 40s linear infinite;
+
+  --color-cream: #fbf4e8;
+  --color-tan: #f3e6d3;
+  --color-brand: #b08b65;
+  --color-brand-text: #8a6a49;
+  --color-brand-deep: #5c4630;
 }
 
 @keyframes fade-in-down {
