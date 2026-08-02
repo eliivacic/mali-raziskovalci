@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react'
+
 const FEATURES = [
   {
     title: '50 PRAVLJIC',
@@ -38,6 +40,27 @@ const FEATURES = [
 ]
 
 export default function FeaturesSection() {
+  const [revealed, setRevealed] = useState(false)
+  const gridRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const el = gridRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setRevealed(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="relative bg-[#f3e6d3] px-5 md:px-10 lg:px-16 py-20 md:py-32">
       <div className="max-w-[1600px] mx-auto flex flex-col items-center gap-12">
@@ -45,11 +68,16 @@ export default function FeaturesSection() {
           Kaj najdete v priročniku?
         </h2>
 
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4 w-full">
-          {FEATURES.map((feature) => (
+        <div ref={gridRef} className="grid grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4 w-full">
+          {FEATURES.map((feature, index) => (
             <div
               key={feature.title}
-              className="relative rounded-3xl overflow-hidden bg-white shadow-sm border border-black/5 p-5 md:p-6 flex flex-col items-center text-center gap-3"
+              style={{ transitionDelay: revealed ? `${index * 40}ms` : '0ms' }}
+              className={`relative rounded-3xl overflow-hidden bg-white shadow-sm border border-black/5 p-5 md:p-6 flex flex-col items-center text-center gap-3 transition-all duration-[350ms] ease-out motion-reduce:transition-opacity motion-reduce:duration-200 ${
+                revealed
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 translate-y-3 scale-[0.97]'
+              }`}
             >
               <img
                 src={feature.icon}
@@ -74,7 +102,7 @@ export default function FeaturesSection() {
             href="https://checkout.mailerlite.com/checkout/32932"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#b08b65] transition-colors whitespace-nowrap"
+            className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#8a6a49] transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
           >
             KUPI ZDAJ: 15,80€
           </a>
@@ -83,6 +111,7 @@ export default function FeaturesSection() {
             <span className="flex items-center gap-2">🔒 Varno plačilo</span>
             <span className="flex items-center gap-2">⚡ Takojšnja dostava po e-pošti</span>
             <span className="flex items-center gap-2">📖 270+ strani vsebine</span>
+            <span className="flex items-center gap-2">💶 Manj kot 6 centov na stran</span>
           </div>
         </div>
       </div>

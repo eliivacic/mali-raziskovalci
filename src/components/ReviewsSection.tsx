@@ -3,42 +3,49 @@ const REVIEWS = [
     quote: 'Končno nekaj, kar otroka res pritegne.',
     body: 'Vsak dan izbereva eno aktivnost in vedno znova me preseneti, kako malo je potrebno za kakovostno preživet čas skupaj.',
     author: 'Nina, mama 4-letnika',
+    avatar: '/1.png',
   },
   {
     quote: 'Najlepši del dneva je postal najin skupni čas.',
     body: 'Pravljice pred spanjem in pogovorne kartice so postale del naše večerne rutine. Zelo lepo zasnovan priročnik.',
     author: 'Maja, mama dveh otrok',
+    avatar: '/2.png',
   },
   {
     quote: 'Preprosto, uporabno in zelo lepo oblikovano.',
     body: 'Všeč mi je, da lahko strani natisnem večkrat. Otroka se jih nikakor ne naveličata.',
     author: 'Andreja, mama 3- in 6-letnika',
+    avatar: '/3.png',
   },
   {
     quote: 'Odlična alternativa zaslonom.',
     body: 'Ko zmanjka idej, samo odprem priročnik in vedno najdeva nekaj zanimivega. Toplo priporočam vsem staršem.',
     author: 'Tanja, mama 5-letnika',
+    avatar: '/5.png',
   },
   {
     quote: 'Več pogovora, več smeha in več skupnih trenutkov.',
     body: 'Najbolj so me navdušile pogovorne kartice. Odprle so teme, o katerih se prej sploh nismo pogovarjali.',
     author: 'Petra, mama 7-letnice',
+    avatar: '/6.png',
   },
   {
     quote: 'Otroka komaj čakata, katero aktivnost bova izbrala.',
     body: 'Priročnik nama je dal ogromno novih idej za ustvarjanje, igro in raziskovanje. Vreden vsakega evra.',
     author: 'Simona, mama 5-letnika',
+    avatar: '/7.png',
   },
   {
     quote: 'To ni samo zbirka aktivnosti, ampak zbirka skupnih spominov.',
     body: 'Najbolj mi je všeč, da aktivnosti niso zapletene. Potrebuješ le nekaj minut časa in veliko dobre volje.',
     author: 'Katja, mama 4-letnice',
+    avatar: '/1.png',
   },
 ]
 
 function Stars() {
   return (
-    <div className="flex gap-0.5 text-[#b08b65] text-sm" aria-hidden="true">
+    <div className="flex gap-0.5 text-[#8a6a49] text-sm" aria-hidden="true">
       {'★★★★★'.split('').map((star, i) => (
         <span key={i}>{star}</span>
       ))}
@@ -54,7 +61,14 @@ function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
         "{review.quote}"
       </p>
       <p className="text-black/60 text-sm leading-relaxed line-clamp-4">{review.body}</p>
-      <p className="text-[#b08b65] text-sm font-semibold mt-auto">– {review.author}</p>
+      <div className="mt-auto flex items-center gap-2">
+        <img
+          src={review.avatar}
+          alt=""
+          className="w-8 h-8 rounded-full object-cover bg-[#f3e6d3]"
+        />
+        <p className="text-[#8a6a49] text-sm font-semibold">{review.author}</p>
+      </div>
     </div>
   )
 }
@@ -66,7 +80,7 @@ export default function ReviewsSection() {
         Kaj pravijo starši?
       </h2>
 
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
         {[...REVIEWS, ...REVIEWS].map((review, i) => (
           <div key={i} className="pr-6">
             <ReviewCard review={review} />

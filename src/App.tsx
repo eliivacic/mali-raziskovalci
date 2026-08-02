@@ -51,7 +51,7 @@ export default function App() {
               href="https://checkout.mailerlite.com/checkout/32932"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black text-base font-medium px-6 py-3 rounded-xl hover:bg-white/90 transition-colors whitespace-nowrap"
+              className="bg-white text-black text-base font-medium px-6 py-3 rounded-xl hover:bg-white/90 transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
             >
               KUPI ZDAJ: 15,80€
             </a>

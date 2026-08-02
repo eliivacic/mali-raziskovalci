@@ -13,13 +13,14 @@ export default function ClosingCtaSection() {
           Pripravljeni na več skupnih trenutkov?
         </h2>
         <p className="text-white/80 text-base md:text-lg font-medium">
-          270+ strani pravljic, pobarvank in aktivnosti — vse na enem mestu, za vedno vaše.
+          270+ strani pravljic, pobarvank in aktivnosti — vse na enem mestu, za vedno vaše. Manj
+          kot 6 centov na stran.
         </p>
         <a
           href="https://checkout.mailerlite.com/checkout/32932"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 bg-white text-[#b08b65] text-base font-semibold px-8 py-3.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
+          className="mt-2 bg-white text-[#8a6a49] text-base font-semibold px-8 py-3.5 rounded-xl hover:bg-black hover:text-white transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
         >
           KUPI ZDAJ: 15,80€
         </a>

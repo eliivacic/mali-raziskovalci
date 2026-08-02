@@ -33,3 +33,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  a:active,
+  button:active {
+    transform: none !important;
+    opacity: 0.85;
+  }
+}

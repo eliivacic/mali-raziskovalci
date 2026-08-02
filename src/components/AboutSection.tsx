@@ -36,7 +36,7 @@ export default function AboutSection() {
           href="https://checkout.mailerlite.com/checkout/32932"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#b08b65] transition-colors whitespace-nowrap"
+          className="bg-[#b08b65] text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-[#8a6a49] transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
         >
           KUPI ZDAJ: 15,80€
         </a>
@@ -46,6 +46,7 @@ export default function AboutSection() {
         <span className="flex items-center gap-2">🔒 Varno plačilo</span>
         <span className="flex items-center gap-2">⚡ Takojšnja dostava po e-pošti</span>
         <span className="flex items-center gap-2">📖 270+ strani vsebine</span>
+        <span className="flex items-center gap-2">💶 Manj kot 6 centov na stran</span>
       </div>
     </section>
   )

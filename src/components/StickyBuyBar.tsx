@@ -9,7 +9,7 @@ export default function StickyBuyBar() {
         href="https://checkout.mailerlite.com/checkout/32932"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-white text-[#b08b65] text-sm md:text-base font-semibold px-5 py-2.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
+        className="bg-white text-[#8a6a49] text-sm md:text-base font-semibold px-5 py-2.5 rounded-xl hover:bg-black hover:text-white transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
       >
         KUPI ZDAJ
       </a>

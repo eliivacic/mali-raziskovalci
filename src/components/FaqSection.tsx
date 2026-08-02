@@ -27,7 +27,7 @@ const FAQS = [
         Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem
         nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas
         kontaktirajte na{' '}
-        <a href="mailto:info@maliraziskovalci.si" className="text-[#b08b65] underline hover:no-underline">
+        <a href="mailto:info@maliraziskovalci.si" className="text-[#8a6a49] underline hover:no-underline">
           info@maliraziskovalci.si
         </a>
         .
@@ -58,7 +58,7 @@ const FAQS = [
     answer: (
       <>
         Brez skrbi — pišite nam na{' '}
-        <a href="mailto:info@maliraziskovalci.si" className="text-[#b08b65] underline hover:no-underline">
+        <a href="mailto:info@maliraziskovalci.si" className="text-[#8a6a49] underline hover:no-underline">
           info@maliraziskovalci.si
         </a>{' '}
         in vam bomo poslali predračun po e-pošti.
@@ -83,18 +83,28 @@ export default function FaqSection() {
         >
           <span className="text-black text-base md:text-lg font-medium">{faq.question}</span>
           <span
-            className={`shrink-0 text-[#b08b65] text-2xl leading-none transition-transform ${
+            className={`shrink-0 text-[#8a6a49] text-2xl leading-none transition-transform ${
               isOpen ? 'rotate-45' : ''
             }`}
           >
             +
           </span>
         </button>
-        {isOpen && (
-          <p className="px-6 pb-5 text-black/70 text-sm md:text-base leading-relaxed">
-            {faq.answer}
-          </p>
-        )}
+        <div
+          className={`grid transition-[grid-template-rows] duration-[250ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${
+            isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          }`}
+        >
+          <div className="overflow-hidden">
+            <p
+              className={`px-6 pb-5 text-black/70 text-sm md:text-base leading-relaxed transition-opacity duration-150 ${
+                isOpen ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {faq.answer}
+            </p>
+          </div>
+        </div>
       </div>
     )
   }
@@ -118,7 +128,7 @@ export default function FaqSection() {
           Imate vprašanje?{' '}
           <a
             href="mailto:info@maliraziskovalci.si"
-            className="text-[#b08b65] font-semibold underline hover:no-underline"
+            className="text-[#8a6a49] font-semibold underline hover:no-underline"
           >
             Pišite nam na info@maliraziskovalci.si
           </a>
