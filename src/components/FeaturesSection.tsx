@@ -49,7 +49,7 @@ export default function FeaturesSection() {
           {FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="group relative lg:aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-sm border border-black/5 p-5 flex flex-col items-center text-center gap-3"
+              className="relative rounded-3xl overflow-hidden bg-white shadow-sm border border-black/5 p-5 md:p-6 flex flex-col items-center text-center gap-3"
             >
               <img
                 src={feature.icon}
@@ -59,15 +59,9 @@ export default function FeaturesSection() {
               <h3 className="text-black text-sm md:text-lg font-medium leading-tight min-h-[2.2rem] md:min-h-[3.5rem] flex items-center justify-center">
                 {feature.title}
               </h3>
-              <p className="text-black/60 text-xs leading-relaxed lg:hidden">
+              <p className="text-black/60 text-xs md:text-sm leading-relaxed">
                 {feature.description}
               </p>
-
-              <div className="hidden lg:flex absolute inset-0 bg-[#b08b65]/95 items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm md:text-base leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
             </div>
           ))}
         </div>
