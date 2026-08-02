@@ -22,8 +22,17 @@ const FAQS = [
   },
   {
     question: 'Kako poteka nakup in kdaj prejmem dostop?',
-    answer:
-      'Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas kontaktirajte na info@maliraziskovalci.si.',
+    answer: (
+      <>
+        Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem
+        nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas
+        kontaktirajte na{' '}
+        <a href="mailto:info@maliraziskovalci.si" className="text-[#b08b65] underline hover:no-underline">
+          info@maliraziskovalci.si
+        </a>
+        .
+      </>
+    ),
   },
   {
     question: 'Ali lahko priročnik uporablja več otrok hkrati?',
@@ -45,9 +54,16 @@ const FAQS = [
       'Vsekakor! Po nakupu lahko povezavo do priročnika preprosto posredujete osebi, kateri ga želite podariti.',
   },
   {
-    question: 'Kaj če imam dodatna vprašanja?',
-    answer:
-      'Z veseljem pomagamo — pišite nam na info@maliraziskovalci.si in odgovorimo v najkrajšem možnem času.',
+    question: 'Kaj če nimam kreditne kartice za plačilo?',
+    answer: (
+      <>
+        Brez skrbi — pišite nam na{' '}
+        <a href="mailto:info@maliraziskovalci.si" className="text-[#b08b65] underline hover:no-underline">
+          info@maliraziskovalci.si
+        </a>{' '}
+        in vam bomo poslali predračun po e-pošti.
+      </>
+    ),
   },
 ]
 

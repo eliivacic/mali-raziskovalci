@@ -1,16 +1,12 @@
 export default function ClosingCtaSection() {
   return (
-    <section className="relative bg-[#b08b65] px-6 py-20 md:py-28 overflow-hidden">
+    <section className="relative px-6 py-20 md:py-28 overflow-hidden">
       <img
-        src="/1.png"
+        src="/maliraziskovalci_ozadje.png"
         alt=""
-        className="hidden md:block absolute left-6 lg:left-16 bottom-0 w-32 lg:w-44 h-auto pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover"
       />
-      <img
-        src="/2.png"
-        alt=""
-        className="hidden md:block absolute right-6 lg:right-16 bottom-0 w-28 lg:w-40 h-auto pointer-events-none select-none"
-      />
+      <div className="absolute inset-0 bg-[#b08b65]/85" />
 
       <div className="relative max-w-xl mx-auto flex flex-col items-center text-center gap-6">
         <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-normal leading-tight">
