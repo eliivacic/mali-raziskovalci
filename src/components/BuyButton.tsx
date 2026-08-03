@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Copy, CreditCard, Landmark, X } from 'lucide-react'
+import { createPortal } from 'react-dom'
+import { CheckCircle2, Copy, CreditCard, Landmark, X } from 'lucide-react'
 
 const CARD_CHECKOUT_URL = 'https://checkout.mailerlite.com/checkout/32932'
 
@@ -94,16 +95,18 @@ export default function BuyButton({
   children: React.ReactNode
 }) {
   const [open, setOpen] = useState(false)
-  const [method, setMethod] = useState<'choose' | 'bank'>('choose')
+  const [method, setMethod] = useState<'choose' | 'bank' | 'thanks'>('choose')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
-  const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
   const close = () => {
     setOpen(false)
     setMethod('choose')
+    setFirstName('')
+    setLastName('')
+    setEmail('')
   }
 
   const fullName = `${firstName} ${lastName}`.trim()
@@ -118,16 +121,10 @@ export default function BuyButton({
         body: JSON.stringify({ firstName, lastName, email }),
       })
     } catch {
-      // ignore — mailto notification below still goes through
+      // ignore — the request still reaches MailerLite server-side in most cases
     }
-
-    const subject = encodeURIComponent('Nakazilo za priročnik Mali raziskovalci')
-    const body = encodeURIComponent(
-      `Ime: ${firstName}\nPriimek: ${lastName}\nEmail: ${email}\n\nŽelim plačati z nakazilom in prejeti priročnik na zgornji email po prejetem plačilu.`,
-    )
-    window.location.href = `mailto:info@maliraziskovalci.si?subject=${subject}&body=${body}`
     setSending(false)
-    setSent(true)
+    setMethod('thanks')
   }
 
   return (
@@ -136,12 +133,15 @@ export default function BuyButton({
         {children}
       </button>
 
-      {open && (
-        <div className="fixed inset-0 z-[110] bg-black/50 flex items-center justify-center p-4 opacity-100 transition-opacity duration-200 ease-out starting:opacity-0">
+      {open &&
+        createPortal(
+          <div className="fixed inset-0 z-[110] bg-black/50 flex items-center justify-center p-4 opacity-100 transition-opacity duration-200 ease-out starting:opacity-0">
           <div className="bg-cream text-black rounded-2xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 flex flex-col gap-5 opacity-100 scale-100 transition-all duration-[220ms] ease-out starting:opacity-0 starting:scale-[0.96]">
             <div className="flex items-start justify-between gap-4">
               <h3 className="text-xl md:text-2xl font-medium">
-                {method === 'choose' ? 'Zaključi naročilo' : 'Plačilo z nakazilom'}
+                {method === 'choose' && 'Zaključi naročilo'}
+                {method === 'bank' && 'Plačilo z nakazilom'}
+                {method === 'thanks' && 'Hvala!'}
               </h3>
               <button
                 onClick={close}
@@ -152,9 +152,29 @@ export default function BuyButton({
               </button>
             </div>
 
-            <OrderSummary />
+            {method !== 'thanks' && <OrderSummary />}
 
-            {method === 'choose' ? (
+            {method === 'thanks' ? (
+              <div className="flex flex-col items-center text-center gap-4 py-4">
+                <span className="w-16 h-16 rounded-full bg-brand/15 text-brand-text flex items-center justify-center">
+                  <CheckCircle2 size={36} />
+                </span>
+                <div>
+                  <p className="text-black text-lg font-semibold">Naročilo je oddano</p>
+                  <p className="text-black/60 text-sm leading-relaxed mt-1">
+                    Podatke za nakazilo vam pošljemo tudi na email{' '}
+                    <span className="font-medium text-black">{email}</span>. Priročnik prejmete v
+                    24 urah po prejetem nakazilu.
+                  </p>
+                </div>
+                <button
+                  onClick={close}
+                  className="mt-2 bg-brand text-white text-sm font-semibold px-6 py-2.5 rounded-xl hover:bg-black transition-colors"
+                >
+                  Zapri
+                </button>
+              </div>
+            ) : method === 'choose' ? (
               <div className="flex flex-col gap-3">
                 <p className="text-black/50 text-xs font-medium uppercase tracking-wide">
                   Izberite način plačila
@@ -223,12 +243,8 @@ export default function BuyButton({
                   disabled={!canSend || sending}
                   className="bg-brand text-white text-base font-semibold px-4 py-3 rounded-xl hover:bg-black transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {sent ? 'Naročilo oddano ✓' : sending ? 'Pošiljanje …' : 'Oddaj naročilo'}
+                  {sending ? 'Pošiljanje …' : 'Oddaj naročilo'}
                 </button>
-
-                <p className="text-black/50 text-xs leading-relaxed text-center">
-                  Priročnik prejmete na email v 24 urah po prejetem nakazilu.
-                </p>
 
                 <button
                   onClick={() => setMethod('choose')}
@@ -239,8 +255,9 @@ export default function BuyButton({
               </div>
             )}
           </div>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )}
     </>
   )
 }
