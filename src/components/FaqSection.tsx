@@ -24,9 +24,10 @@ const FAQS = [
     question: 'Kako poteka nakup in kdaj prejmem dostop?',
     answer: (
       <>
-        Po kliku na gumb "Kupi zdaj" vas povežemo na varno spletno blagajno. Po zaključenem
-        nakupu prejmete povezavo do priročnika v nekaj minutah. Če se povezava ne prikaže, nas
-        kontaktirajte na{' '}
+        Po kliku na gumb "Kupi zdaj" izberete način plačila: s kartico (dostop prejmete v nekaj
+        minutah po plačilu) ali z nakazilom (vnesete svoje podatke, prikažejo se vam podatki za
+        nakazilo, priročnik pa prejmete na email v 24 urah po prejetem nakazilu). Če imate
+        vprašanje, nas kontaktirajte na{' '}
         <a href="mailto:info@maliraziskovalci.si" className="text-brand-text underline hover:no-underline">
           info@maliraziskovalci.si
         </a>
@@ -54,14 +55,15 @@ const FAQS = [
       'Vsekakor! Po nakupu lahko povezavo do priročnika preprosto posredujete osebi, kateri ga želite podariti.',
   },
   {
-    question: 'Kaj če nimam kreditne kartice za plačilo?',
+    question: 'Ali dobim račun za nakup?',
     answer: (
       <>
-        Brez skrbi — pišite nam na{' '}
+        Da. Ne glede na izbran način plačila vam po zaključenem nakupu izstavimo račun in vam
+        ga pošljemo na email. Če ga ne prejmete, pišite na{' '}
         <a href="mailto:info@maliraziskovalci.si" className="text-brand-text underline hover:no-underline">
           info@maliraziskovalci.si
-        </a>{' '}
-        in vam bomo poslali predračun po e-pošti.
+        </a>
+        .
       </>
     ),
   },
