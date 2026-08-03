@@ -1,3 +1,5 @@
+import BuyButton from './BuyButton'
+
 export default function ClosingCtaSection() {
   return (
     <section className="relative px-6 py-20 md:py-28 overflow-hidden">
@@ -20,14 +22,9 @@ export default function ClosingCtaSection() {
           270+ strani pravljic, pobarvank in aktivnosti — vse na enem mestu, za vedno vaše. Manj
           kot 6 centov na stran.
         </p>
-        <a
-          href="https://checkout.mailerlite.com/checkout/32932"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 bg-white text-brand-text text-base font-semibold px-8 py-3.5 rounded-xl hover:bg-black hover:text-white transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
-        >
+        <BuyButton className="mt-2 bg-white text-brand-text text-base font-semibold px-8 py-3.5 rounded-xl hover:bg-black hover:text-white transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap">
           KUPI ZDAJ: 15,80€
-        </a>
+        </BuyButton>
       </div>
     </section>
   )

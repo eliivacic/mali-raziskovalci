@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { BookOpen, Euro, Lock, Zap } from 'lucide-react'
+import BuyButton from './BuyButton'
 
 const FEATURES = [
   {
@@ -105,14 +106,9 @@ export default function FeaturesSection() {
           <p className="text-black text-sm font-medium">
             Manj zaslonov. Več domišljije. Več skupnih trenutkov.
           </p>
-          <a
-            href="https://checkout.mailerlite.com/checkout/32932"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-brand text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-brand-text transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
-          >
+          <BuyButton className="bg-brand text-white text-base font-medium px-6 py-3 rounded-xl hover:bg-white hover:text-brand-text transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap">
             KUPI ZDAJ: 15,80€
-          </a>
+          </BuyButton>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-2 text-black/60 text-xs md:text-sm font-medium">
             <span className="flex items-center gap-2">

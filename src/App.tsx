@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import { Heart } from 'lucide-react'
 import Navbar from './components/Navbar'
+import BuyButton from './components/BuyButton'
 import InspiresSection from './components/InspiresSection'
 import AboutSection from './components/AboutSection'
 import AudienceFitSection from './components/AudienceFitSection'
@@ -50,14 +51,9 @@ export default function App() {
             <span className="text-white text-sm font-medium text-center whitespace-nowrap flex items-center justify-center gap-1.5">
               ZAČNITE USTVARJATI SPOMINE <Heart size={14} fill="currentColor" />
             </span>
-            <a
-              href="https://checkout.mailerlite.com/checkout/32932"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-black text-base font-medium px-6 py-3 rounded-xl hover:bg-white/90 transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap"
-            >
+            <BuyButton className="bg-white text-black text-base font-medium px-6 py-3 rounded-xl hover:bg-white/90 transition duration-150 ease-out active:scale-[0.97] whitespace-nowrap">
               KUPI ZDAJ: 15,80€
-            </a>
+            </BuyButton>
           </div>
         </div>
       </section>
