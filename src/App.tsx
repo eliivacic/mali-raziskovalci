@@ -1,7 +1,9 @@
 import { Analytics } from '@vercel/analytics/react'
 import { Heart } from 'lucide-react'
 import Navbar from './components/Navbar'
+import InspiresSection from './components/InspiresSection'
 import AboutSection from './components/AboutSection'
+import AudienceFitSection from './components/AudienceFitSection'
 import FeaturesSection from './components/FeaturesSection'
 import ReviewsSection from './components/ReviewsSection'
 import FaqSection from './components/FaqSection'
@@ -12,7 +14,7 @@ import StickyBuyBar from './components/StickyBuyBar'
 export default function App() {
   return (
     <>
-      <section className="relative h-screen overflow-hidden mb-[-25px]">
+      <section className="relative h-screen overflow-hidden">
         <video
           autoPlay
           muted
@@ -60,8 +62,10 @@ export default function App() {
         </div>
       </section>
 
+      <InspiresSection />
       <AboutSection />
       <FeaturesSection />
+      <AudienceFitSection />
       <ReviewsSection />
       <FaqSection />
       <ClosingCtaSection />
